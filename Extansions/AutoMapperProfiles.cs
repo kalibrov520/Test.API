@@ -12,7 +12,8 @@ namespace Test.API.Extansions
             {
                 opt.ResolveUsing(d => d.DateOfBirth.CalculateAge());
             });
-            
+            CreateMap<UserForRegisterDto, User>();
+
         }
     }
 }
