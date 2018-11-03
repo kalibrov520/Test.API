@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Test.API.Extansions;
 using Test.API.Models;
 
 namespace Test.API.Data
@@ -13,7 +14,7 @@ namespace Test.API.Data
         
         Task<bool> SaveAll();
         
-        Task<IEnumerable<User>> GetUsers();
+        Task<PagedList<User>> GetUsers(UserParams userParams);
         
         Task<User> GetUser(int id);
     }
