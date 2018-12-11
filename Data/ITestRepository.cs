@@ -18,5 +18,7 @@ namespace Test.API.Data
         Task<User> GetUser(int id);
 
         Task<Photo> GetPhoto(int id);
+
+        Task<Photo> GetMainPhoto(int id);
     }
 }
