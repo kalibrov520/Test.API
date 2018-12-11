@@ -32,13 +32,22 @@ namespace Test.API.Data
         public async Task<IEnumerable<User>> GetUsers()
         {
             var users = await _context.Users.ToListAsync();
+            
             return users;
         }
 
         public async Task<User> GetUser(int id)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == id);
+            var user = await _context.Users.Include(p => p.Photos).FirstOrDefaultAsync(u => u.Id == id);
+            
             return user;
+        }
+
+        public async Task<Photo> GetPhoto(int id)
+        {
+            var photo = await _context.Photos.FirstOrDefaultAsync(p => p.Id == id);
+
+            return photo;
         }
     }
 }
